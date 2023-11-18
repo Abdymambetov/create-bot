@@ -4,7 +4,7 @@ from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from config import bot
 from keyboards.klient_kb import submit_markup, cancel_markup, gender_markup
-
+from database.bot_db import sql_command_insert
 
 #FSM- Finito State Machine
 
@@ -71,7 +71,7 @@ async def load_photo(message: types.Message, state: FSMContext):
 
 async def submit_correct(message: types.Message, state: FSMContext):
     if message.text.lower() == 'да':
-        #В базу данных
+        await sql_command_insert(state)
         await state.finish()
         await message.answer("You are registered!")
     elif message.text.lower == 'нет':

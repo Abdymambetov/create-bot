@@ -2,6 +2,11 @@ from aiogram import executor
 from config import dp
 import logging
 from handlers import client, callback, extra, admin, fsm_anketa
+from database.bot_db import sql_create
+
+
+async def on_start_up(_):
+    sql_create()
 
 client.register_handlers_client(dp)
 callback.register_hendlers_callback(dp)
@@ -11,4 +16,4 @@ fsm_anketa.register_handlers_fsm_anketa(dp)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
-    executor.start_polling(dp, skip_updates=False)
+    executor.start_polling(dp, skip_updates=False, on_startup=on_start_up)
