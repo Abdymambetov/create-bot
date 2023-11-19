@@ -30,4 +30,17 @@ async def sql_command_random(message):
     await bot.send_photo(message.from_user.id, random_user[6], 
                             caption=f"{random_user[2]}, {random_user[3]}, {random_user[4]}, {random_user[5]},\n {random_user[1]}")
     print(random_user)
+
+
+async def sql_command_all() -> list:
+    return cursor.execute("SELECT * FROM anketa").fetchall()
+
+
+async def sql_command_delete(user_id)-> None:
+    cursor.execute("DELETE FROM anketa WHERE id = ?", (user_id,))
+    db.commit()
+
+async def sql_command_get_all_ids() -> list:
+    return cursor.execute("SELECT id FROM anketa").fetchall()
+
     

@@ -4,6 +4,7 @@ from config import dp, bot
 from keyboards.klient_kb import start_markup
 from handlers.fsm_anketa import fsm_start
 from database.bot_db import sql_command_random
+from handlers.admin import delete_data
 
 
 # @dp.message_handler(commands=['start', 'help'])
@@ -70,3 +71,4 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(dice_game, commands=['dice'])
     dp.register_message_handler(fsm_start, commands=['reg'])
     dp.register_message_handler(get_random_user, commands=['get'])
+    dp.register_message_handler(delete_data, commands=['del'])

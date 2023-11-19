@@ -11,12 +11,13 @@ info_button= KeyboardButton("/info")
 quiz_button = KeyboardButton("/quiz")
 dice_button = KeyboardButton('/dice')
 reg_button = KeyboardButton('/reg')
+del_button = KeyboardButton('/del')
 
 share_location = KeyboardButton("Share Location", request_location=True)
 share_contact = KeyboardButton("Share Contact", request_contact=True)
 
 
-start_markup.add(start_button, info_button, quiz_button, share_location, share_contact, dice_button, reg_button)
+start_markup.add(start_button, info_button, quiz_button, share_location, share_contact, dice_button, reg_button, del_button)
 
 
 submit_markup = ReplyKeyboardMarkup(
