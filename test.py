@@ -64,3 +64,12 @@ async def main2():
     await gather(*task_list)
 
 run(main2())
+
+
+
+#
+a =[1,2,3,4]
+b = ['a', 'b', 'c']
+
+a.append(b)
+print(a)
